@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -11,11 +11,18 @@ import Coments from './components/Coments';
 import SelfExam from './components/SelfExam';
 import Treatment from './components/Treatment';
 import ScreeningForm from './components/ScreeningForm';
-import PolitcsPage from './pages/PolitcsPage'; // Importa a página de tratamento
+import PolitcsPage from './pages/PolitcsPage';
 import TreatmentHeader from './components/TreatmentHeader';
 import ConsentModal from './components/ConsentModal';
+import Clarity from '@microsoft/clarity';
 
 function App() {
+    const projectId = process.env.CLARITY_PROJECT_ID;
+
+    useEffect(() => {
+        Clarity.init(projectId);
+    }, []);
+    
     return (
         <div>
             <Routes>
