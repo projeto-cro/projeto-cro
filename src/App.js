@@ -17,7 +17,7 @@ import ConsentModal from './components/ConsentModal';
 import Clarity from '@microsoft/clarity';
 
 function App() {
-    const projectId = "t4hp9x1dag"
+    const projectId = process.env.CLARITY_PROJECT_ID;
 
     useEffect(() => {
         Clarity.init(projectId);
